@@ -3,7 +3,7 @@ import Joi from "joi";
 export const UserSchema = Joi.object<UserType>({
   username: Joi.string().required(),
   password: Joi.string().required(),
-  image: Joi.string().required(),
+  email: Joi.string().email().required(),
 });
 
 export const UserLoginSchema = Joi.object<UserType>({
@@ -14,5 +14,5 @@ export const UserLoginSchema = Joi.object<UserType>({
 export type UserType = {
   username: string;
   password: string;
-  image: string;
+  email: string;
 };
