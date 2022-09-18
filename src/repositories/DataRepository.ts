@@ -46,7 +46,7 @@ class UserRepository {
         return { status: 400, data: new Error("Esse id não corresponde a nenhuma receita.") };
       }
 
-      return { status: 201, data };
+      return { status: 200, data };
     } catch (error) {
       console.log(error);
       return { status: 400, data: new Error(error) };
@@ -78,7 +78,7 @@ class UserRepository {
         return checker(array_ingredients, lower_ingredients);
       });
 
-      return { status: 201, data };
+      return { status: 200, data };
     } catch (error) {
       console.log(error);
       return { status: 400, data: new Error(error) };
@@ -93,7 +93,7 @@ class UserRepository {
 
       const data = rows.map(({ ingredient }) => ingredient[0].toUpperCase() + ingredient.slice(1));
 
-      return { status: 201, data };
+      return { status: 200, data };
     } catch (error) {
       console.log(error);
       return { status: 400, data: new Error(error) };
