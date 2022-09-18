@@ -19,6 +19,7 @@ type QueryResult = {
 }[];
 
 type QueryRecipeResult = {
+  id: number;
   recipe_title: string;
   cuisine: string;
   diet: string;
@@ -65,7 +66,7 @@ class UserRepository {
       const checker = (arr: string[], target: string[]) => target.every((v) => arr.includes(v));
 
       const { rows } = await client.query<QueryRecipeResult>(
-        `SELECT recipe_title, cuisine, diet, prep_time, ingredients FROM public.data`
+        `SELECT id, recipe_title, cuisine, diet, prep_time, ingredients FROM public.data`
       );
 
       const data = rows.filter(({ ingredients: ingredient_row }) => {
