@@ -63,7 +63,7 @@ class UserRepository {
           data: new Error("Você precisa enviar um array de ingredients válido"),
         };
       }
-      const checker = (arr: string[], target: string[]) => target.every((v) => arr.includes(v));
+      const checker = (arr: string[], target: string[]) => target.some((v) => arr.includes(v));
 
       const { rows } = await client.query<QueryRecipeResult>(
         `SELECT id, recipe_title, cuisine, diet, prep_time, ingredients FROM public.data`
